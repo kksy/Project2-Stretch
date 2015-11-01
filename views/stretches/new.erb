@@ -1,0 +1,13 @@
+<form action="/stretches" method="post">
+  <label for="">stretch</label>
+  <input type="text" name="stretch" placeholder="description">
+
+  <select name="stretch_type_id">
+  	<option selected disabled>category</option>
+		<% StretchType.all.each do |stretch_type| %>
+		<option value="<%= stretch_type.id %>"><%= stretch_type.name %></option>
+		<% end %>
+  </select>
+
+  <button>create stretch</button>
+</form>
