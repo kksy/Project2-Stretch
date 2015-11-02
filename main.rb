@@ -15,8 +15,18 @@ get '/' do
   erb :index
 end
 
-# get form for new stretch
+# logged in home page
+get '/home' do
+
+	erb :home
+end
+
 get '/stretches' do
+	erb :'/stretches/show'
+end
+
+# get form for new stretch
+get '/stretches/new' do
 	
 	erb :'/stretches/new'
 end
@@ -28,5 +38,17 @@ post '/stretches' do
 		task: "#{ params[:stretch] }",
 		stretch_type_id: "#{ params[:stretch_type_id] }"
 	)
-	erb :'/stretches/new'
+	erb :'/stretches/show'
+end
+
+# get the form for log in
+get  '/session/new' do
+
+	erb :login
+end
+
+# get the form for sign up
+get  '/register' do
+
+	erb :register
 end
