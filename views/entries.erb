@@ -1,0 +1,35 @@
+<h2 id="pending">PENDING</h2>
+
+<div class="list-group">
+  <% @entries_pending.each do |entry| %>
+  	<% stretch_id = entry.stretch_id %>
+  	<% stretch = Stretch.find_by(id: stretch_id) %>
+    <form class="stretches" action="/user/entries" method="post">
+      <p class="list-group-item">
+        <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
+        <%= stretch.task %>
+        <button class="btn btn-xs btn-default pull-right">completed</button>
+      </p>
+    </form>
+  <% end %>
+</div>
+
+
+<h2 id="completed">COMPLETED</h2>
+
+<div class="list-group">
+  <% @entries_completed.each do |entry| %>
+  	<% stretch_id = entry.stretch_id %>
+  	<% stretch = Stretch.find_by(id: stretch_id) %>
+    <form class="stretches" action="/user/entries" method="post">
+      <p class="list-group-item">
+        <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
+        <%= stretch.task %>
+        <button class="btn btn-xs btn-default pull-right">add/edit post</button>
+      </p>
+    </form>
+  <% end %>
+</div>
+
+
+<h2 id="posts">POSTS</h2>

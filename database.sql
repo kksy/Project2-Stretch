@@ -21,8 +21,7 @@ CREATE TABLE users
 	id SERIAL4 PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
 	email VARCHAR(200) NOT NULL,
-	password_digest VARCHAR(200) NOT NULL,
-	entry_id INTEGER NOT NULL
+	password_digest VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE entries

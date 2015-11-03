@@ -1,27 +1,44 @@
-<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-	
-	<h2>CATEGORIES</h2>
+      <h2>CATEGORIES</h2>
 
-  <ul class="nav nav-tabs">
-	  <li role="presentation" class="active"><a href="#"><span class="fa fa-users fa-2x"></span>SOCIAL</a></li>
-	  <li role="presentation"><a href="#"><span class="fa fa-book fa-2x"></span>PASTIME</a></li>
-	  <li role="presentation"><a href="#"><span class="fa fa-fire fa-2x"></span>ADVENTURE</a></li>
-	</ul>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/stretches">ALL</a></li>
+    	  <% @stretch_types.each do |stretch_type| %>
+          <li role="presentation"><a href="/stretches?stretch_type_id=<%= "#{stretch_type.id}" %>"><%= stretch_type.name.upcase %></a></li>
+        <% end %>
+    	</ul>
 
-	
+      <div class="list-group">
+       
+        <% @stretches.each do |stretch| %>
+          <form class="stretches" action="/user/entries" method="post">
+            <p class="list-group-item">
+              <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
+              <%= stretch.task %>
+              <button class="btn btn-xs btn-default pull-right">try</button>
+            </p>
+          </form>
+        <% end %>
 
-	<h2>BE INSPIRED</h2>
 
-  <div class="thumbnail">
-    <!-- <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=500%C3%97500&w=500&h=500" alt="..."> -->
-    <div class="caption">
-      <h3>Stretch</h3>
-      <p>Lorem ipsum dolor sit amet, id agam atqui ius, an per commodo verterem. No postulant intellegat sit, case mandamus et pro, est ea causae aliquid. At quod mentitum patrioque qui, dicunt bonorum interesset eos ex. Vis primis docendi evertitur ei.
-</p>
-      <p>
-      	<a href="#" class="btn btn-primary" role="button">RANDOMISE</a> 
-      	<a href="#" class="btn btn-default" role="button">TRY IT</a>
-      </p>
-    </div>
-  </div>
-</div>
+      </div>
+
+    	<h2>BE INSPIRED</h2>
+
+      <div class="row">
+        
+        <% for i in 0..5 %>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=500%C3%97500&w=500&h=500" alt="">
+            <div class="caption">
+              <h4>Stretch</h4>
+              <p>Lorem ipsum dolor sit amet, id agam atqui ius, an per commodo verterem. No postulant intellegat sit, case mandamus et pro, est ea causae aliquid. At quod mentitum patrioque qui, dicunt bonorum interesset eos ex. Vis primis docendi evertitur ei.</p>
+              <p> 
+              	<a href="#" class="btn btn-default" role="button">TRY STRETCH</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      
+      </div>

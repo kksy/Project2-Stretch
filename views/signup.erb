@@ -1,11 +1,15 @@
 <div class="heading text-center">
 	<span class="fa fa-expand fa-4x"></span>
-	<h1>login</h1>
+	<h1>sign up</h1>
 </div>
 
-<form action="/session" method="post">
+<form action="/register" method="post">
   
   <div class="form-group">
+  	<input required type="text" class="form-control" name="username" placeholder="username">
+	</div>
+
+	 <div class="form-group">
   	<input required type="text" class="form-control" name="email" placeholder="e-mail">
 	</div>
 	
@@ -13,6 +17,6 @@
   	<input required type="text" class="form-control" name="password" placeholder="password">
 	</div>
   
-  <button type="submit" class="btn btn-default btn-block">login</button>
+  <button type="submit" class="btn btn-default btn-block">sign up</button>
 
 </form>
