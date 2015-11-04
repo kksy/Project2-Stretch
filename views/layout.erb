@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <title>Stretch App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/main.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<!-- main stylesheet -->
+  <link rel="stylesheet" href="/stylesheets/main.css">
+
+  <!-- masonry -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
-
-
-
-
+  
 </head>
 <body>
 
@@ -75,18 +80,15 @@
   	</div>
 	</div>
 
-
-
-
-
-
+	<!-- masonry script -->
 	<script>
 		// jQuery
 		var $container = jQuery('#masonry-grid');
 		// initialize
 		$container.masonry({
-		  columnWidth: 200,
-		  itemSelector: '.grid-item'
+		  columnWidth: '.grid-sizer',
+		  itemSelector: '.grid-item',
+		  percentPosition: true
 		});
 
 	</script>

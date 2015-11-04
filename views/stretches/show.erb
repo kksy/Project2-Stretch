@@ -25,21 +25,15 @@
 <!-- display random posts from users -->
 <h2>BE INSPIRED</h2>
 
-<div class="row">
+<!-- <div class="row"> -->
   
- <!--  <div id="masonry-grid">
-    <div class="gutter-sizer"></div> -->
+<div id="masonry-grid">
+  <div class="grid-sizer"></div>
     
-      
-
-    
-
     <% @rand_entries.each do |entry| %>
-
-    <!-- <div class="grid-item"> -->
-
-
-    <div class="col-xs-6 col-sm-6 col-md-4">
+    <div class="grid-item">
+    
+    <!-- <div class="col-xs-6 col-sm-6 col-md-4"> -->
       <div class="thumbnail">
         <img src="https://unsplash.it/400" alt="">
         <div class="caption">
@@ -51,16 +45,11 @@
           </p>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
     
-
-<!--     </div> -->
+    </div>
 
     <% end %>
-
-
-    
     
   </div>
-
 </div>

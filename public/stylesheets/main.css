@@ -25,3 +25,15 @@ a:hover {
   font-style: italic;
 }
 
+/* masonry css */
+.grid-sizer, .grid-item { 
+  width: 50%; 
+}
+
+/* media queries */
+
+/* for masonry */
+@media screen and (min-width: 768px) {
+  /* 5 columns for larger screens */
+  .grid-sizer, .grid-item { width: 33.33333%; }
+}
