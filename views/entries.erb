@@ -48,24 +48,32 @@
 
 <!-- display all completed entries with posts from user -->
 <h2 id="posts">POSTS</h2>
-<div class="row">
-	<% @entries_completed.each do |entry| %>
-		<% if !entry.post.nil? %>
-			<% stretch_id = entry.stretch_id %>
-  		<% stretch = Stretch.find_by(id: stretch_id) %>
-			<div class="col-xs-6 col-sm-6 col-md-4">
-			  <div class="thumbnail">
-			  	<% if entry.image_url.nil? %>
-			    	<img src="http://lorempixel.com/400/400/abstract" alt="">
-			    <% else %>
-			    	<img src="<%= entry.image_url %>" alt="">
-			    <% end %>
-			    <div class="caption">
-			      <h4><%= stretch.task %></h4>
-			      <p><%= entry.post %></p>
-			    </div>
-			  </div>
-			</div>
-		<% end %>	
-	<% end %>
+
+<div id="masonry-grid">
+  <div class="grid-sizer"></div>
+
+<!-- <div class="row"> -->
+		<% @entries_completed.each do |entry| %>
+			<% if !entry.post.nil? %>
+			<div class="grid-item">
+				<% stretch_id = entry.stretch_id %>
+	  		<% stretch = Stretch.find_by(id: stretch_id) %>
+				<!-- <div class="col-xs-6 col-sm-6 col-md-4"> -->
+				  <div class="thumbnail">
+				  	<% if entry.image_url.nil? %>
+				    	<img src="http://lorempixel.com/400/400/abstract" alt="">
+				    <% else %>
+				    	<img src="<%= entry.image_url %>" alt="">
+				    <% end %>
+				    <div class="caption">
+				      <h4><%= stretch.task %></h4>
+				      <p><%= entry.post %></p>
+				    </div>
+				  </div>
+				<!-- </div> -->
+				</div>
+			<% end %>	
+		<% end %>
+<!-- </div> -->
+  </div>
 </div>
