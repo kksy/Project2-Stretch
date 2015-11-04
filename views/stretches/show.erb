@@ -40,8 +40,11 @@
           <h4 class="rand-h4"><%= Stretch.find_by(id: entry.stretch_id).task %></h4>
           <p class="created-by">by <%= User.find_by(id: entry.user_id).name %></p>
           <p><%= entry.post %></p>
-          <p> 
-          	<a href="#" class="btn btn-default" role="button">TRY STRETCH</a>
+          <p>
+            <form class="stretches" action="/user/entries" method="post">
+              <input type="hidden" name="stretch_id" value="<%= entry.stretch_id %>"> 
+              <button type="submit" class="btn btn-sm btn-default">TRY STRETCH</button>
+            </form>
           </p>
         </div>
       </div>

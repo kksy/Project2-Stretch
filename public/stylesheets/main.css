@@ -25,6 +25,11 @@ a:hover {
   font-style: italic;
 }
 
+/* bootstrap override */
+.jumbotron h1 {
+  font-size: 60px;
+}
+
 /* masonry css */
 .grid-sizer, .grid-item { 
   width: 50%; 

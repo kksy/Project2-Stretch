@@ -28,36 +28,36 @@ after do
 end
 
 get '/' do
-  erb :index
-end
-
-# logged in home page
-get '/home' do
-
-	erb :home
+  erb :index, :layout => :layout_main
 end
 
 # get all stretches according to category
 get '/stretches' do
-	@stretch_types = StretchType.all
-	if params[:stretch_type_id].nil? || params[:stretch_type_id].empty?
-    @stretches = Stretch.all
-  else  
-    @stretches = Stretch.where(stretch_type_id: params[:stretch_type_id])
-  end
+	if logged_in?
+		@stretch_types = StretchType.all
+		if params[:stretch_type_id].nil? || params[:stretch_type_id].empty?
+	    @stretches = Stretch.all
+	  else  
+	    @stretches = Stretch.where(stretch_type_id: params[:stretch_type_id])
+	  end
 
-  # for random inspiration posts
-  @rand_entries = []
-  for i in 0..5
-  	@rand_entries << Entry.where.not(post: nil).sample
-  end
+	  # for random inspiration posts
+	  @rand_entries = []
+	  for i in 0..5
+	  	@rand_entries << Entry.where.not(post: nil).sample
+	  end
+	else
+		redirect to '/login'
+	 end
 
 	erb :'/stretches/show'
 end
 
 # get form for new stretch
 get '/stretches/new' do
-	
+	if !logged_in?
+		redirect to '/login'
+	end	
 	erb :'/stretches/new'
 end
 
@@ -73,8 +73,12 @@ end
 
 # list entries of current user
 get '/user/entries' do
-	@entries_pending = Entry.where(user_id: current_user.id, status: 'PENDING')
-	@entries_completed = Entry.where(user_id: current_user.id, status: 'COMPLETED')
+	if logged_in?
+		@entries_pending = Entry.where(user_id: current_user.id, status: 'PENDING')
+		@entries_completed = Entry.where(user_id: current_user.id, status: 'COMPLETED')
+	else
+		redirect to '/login'
+	end
 	erb :entries
 end
 
@@ -108,8 +112,12 @@ end
 
 # get post form
 get '/user/entries/post/:id/edit' do
-	@entry = Entry.find_by(id: params[:id])
-	@entry_id = params[:id]
+	if logged_in?
+		@entry = Entry.find_by(id: params[:id])
+		@entry_id = params[:id]
+	else
+		redirect to '/login'
+	end
 	erb :post
 end
 
