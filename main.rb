@@ -46,7 +46,12 @@ get '/stretches' do
     @stretches = Stretch.where(stretch_type_id: params[:stretch_type_id])
   end
 
-  @entries = Entry.all
+  # for random inspiration posts
+  @rand_entries = []
+  for i in 0..5
+  	@rand_entries << Entry.where.not(post: nil).sample
+  end
+
 	erb :'/stretches/show'
 end
 

@@ -14,3 +14,14 @@ a:hover {
  overflow: auto;
  margin: 10px 0;
 }
+
+.rand-h4 {
+  margin-bottom: 0;
+}
+
+.created-by {
+  color: grey;
+  font-size: 12px;
+  font-style: italic;
+}
+

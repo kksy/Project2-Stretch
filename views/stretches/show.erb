@@ -27,19 +27,40 @@
 
 <div class="row">
   
-  <% for i in 0..5 %>
-  <div class="col-xs-6 col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://unsplash.it/400" alt="">
-      <div class="caption">
-        <h4>Stretch</h4>
-        <p>Lorem ipsum dolor sit amet, id agam atqui ius, an per commodo verterem. No postulant intellegat sit, case mandamus et pro, est ea causae aliquid. At quod mentitum patrioque qui, dicunt bonorum interesset eos ex. Vis primis docendi evertitur ei.</p>
-        <p> 
-        	<a href="#" class="btn btn-default" role="button">TRY STRETCH</a>
-        </p>
+ <!--  <div id="masonry-grid">
+    <div class="gutter-sizer"></div> -->
+    
+      
+
+    
+
+    <% @rand_entries.each do |entry| %>
+
+    <!-- <div class="grid-item"> -->
+
+
+    <div class="col-xs-6 col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="https://unsplash.it/400" alt="">
+        <div class="caption">
+          <h4 class="rand-h4"><%= Stretch.find_by(id: entry.stretch_id).task %></h4>
+          <p class="created-by">by <%= User.find_by(id: entry.user_id).name %></p>
+          <p><%= entry.post %></p>
+          <p> 
+          	<a href="#" class="btn btn-default" role="button">TRY STRETCH</a>
+          </p>
+        </div>
       </div>
     </div>
+    
+
+<!--     </div> -->
+
+    <% end %>
+
+
+    
+    
   </div>
-  <% end %>
 
 </div>

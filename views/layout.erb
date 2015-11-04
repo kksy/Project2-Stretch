@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+
+
+
+
 </head>
 <body>
 
@@ -25,30 +30,33 @@
 	      <a class="navbar-brand" href="/"><span class="fa fa-expand"> stretch</span></a>
 	    </div>
 
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
+	    <% if logged_in? %>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      
+		      <ul class="nav navbar-nav">
 
-	        <li><a href="/stretches">add stretch</a></li>
-	        <li><a href="/user/entries#pending">pending</a></li>
-			    <li><a href="/user/entries#completed">complete</a></li>
-			    <li role="separator" class="divider"></li>
-			    <li><a href="/stretches/new">suggest a stretch</a></li>
-	      </ul>
+		        <li><a href="/stretches">stretches</a></li>
+		        <li><a href="/user/entries#pending">pending</a></li>
+				    <li><a href="/user/entries#completed">complete</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="/stretches/new">suggest a stretch</a></li>
+		      </ul>
 
-				<ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-	        <li><p class="navbar-text">Signed in as <%= current_user.name %></p></li>
-	        <li>
-	          <form class="" action="/session" method="post">
-	            <input type="hidden" name="_method" value="delete">
-	            <button class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</button>
-	          </form>
-	        </li>
-	       <% end %>
-	      </ul>
-				
-	    </div>
+					<ul class="nav navbar-nav navbar-right">
+	        
+		        <li><p class="navbar-text">Hello, <%= current_user.name %>!</p></li>
+		        <li>
+		          <form class="" action="/session" method="post">
+		            <input type="hidden" name="_method" value="delete">
+		            <button class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</button>
+		          </form>
+		        </li>
+		       
+		      </ul>
+		      
+				</div>
+	    <% end %>
 
 		 </div>
 	</nav>
@@ -66,5 +74,21 @@
    		</div>
   	</div>
 	</div>
+
+
+
+
+
+
+	<script>
+		// jQuery
+		var $container = jQuery('#masonry-grid');
+		// initialize
+		$container.masonry({
+		  columnWidth: 200,
+		  itemSelector: '.grid-item'
+		});
+
+	</script>
 
 </body>
