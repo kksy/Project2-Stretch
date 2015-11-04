@@ -11,6 +11,6 @@ a:hover {
 }
 
 .stretches {
-  margin: 0;
-  padding: 0;
+ overflow: auto;
+ margin: 10px 0;
 }

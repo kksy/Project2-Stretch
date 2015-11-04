@@ -1,0 +1,11 @@
+<form action="/user/entries/post/<%= @entry_id %>" method="post">
+
+	<div class="form-group">
+		<input type="hidden" name="_method" value="put">
+  	<textarea name="post" class="form-control" placeholder="Write a short entry of what you did, and how it has improved you"><%= @entry.post %></textarea>
+  	<span id="helpBlock" class="help-block">max 500 chars.</span>
+	</div>
+ 
+  <button type="submit" class="btn btn-default btn-block">add post</button>
+
+</form>

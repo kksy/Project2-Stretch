@@ -1,44 +1,45 @@
-      <h2>CATEGORIES</h2>
+<!-- display stretches according to category -->
+<h2>CATEGORIES</h2>
 
-      <ul class="nav nav-tabs">
-        <li role="presentation"><a href="/stretches">ALL</a></li>
-    	  <% @stretch_types.each do |stretch_type| %>
-          <li role="presentation"><a href="/stretches?stretch_type_id=<%= "#{stretch_type.id}" %>"><%= stretch_type.name.upcase %></a></li>
-        <% end %>
-    	</ul>
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/stretches">ALL</a></li>
+  <% @stretch_types.each do |stretch_type| %>
+    <li role="presentation"><a href="/stretches?stretch_type_id=<%= "#{stretch_type.id}" %>"><%= stretch_type.name.upcase %></a></li>
+  <% end %>
+</ul>
 
-      <div class="list-group">
-       
-        <% @stretches.each do |stretch| %>
-          <form class="stretches" action="/user/entries" method="post">
-            <p class="list-group-item">
-              <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
-              <%= stretch.task %>
-              <button class="btn btn-xs btn-default pull-right">try</button>
-            </p>
-          </form>
-        <% end %>
+<div class="list-group">
+ 
+  <% @stretches.each do |stretch| %>
+    <form class="stretches" action="/user/entries" method="post">
+      <p class="list-group-item">
+        <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
+        <%= stretch.task %>
+        <button class="btn btn-xs btn-default pull-right">try</button>
+      </p>
+    </form>
+  <% end %>
 
+</div>
 
+<!-- display random posts from users -->
+<h2>BE INSPIRED</h2>
+
+<div class="row">
+  
+  <% for i in 0..5 %>
+  <div class="col-xs-6 col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="https://unsplash.it/400" alt="">
+      <div class="caption">
+        <h4>Stretch</h4>
+        <p>Lorem ipsum dolor sit amet, id agam atqui ius, an per commodo verterem. No postulant intellegat sit, case mandamus et pro, est ea causae aliquid. At quod mentitum patrioque qui, dicunt bonorum interesset eos ex. Vis primis docendi evertitur ei.</p>
+        <p> 
+        	<a href="#" class="btn btn-default" role="button">TRY STRETCH</a>
+        </p>
       </div>
+    </div>
+  </div>
+  <% end %>
 
-    	<h2>BE INSPIRED</h2>
-
-      <div class="row">
-        
-        <% for i in 0..5 %>
-        <div class="col-xs-6 col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=500%C3%97500&w=500&h=500" alt="">
-            <div class="caption">
-              <h4>Stretch</h4>
-              <p>Lorem ipsum dolor sit amet, id agam atqui ius, an per commodo verterem. No postulant intellegat sit, case mandamus et pro, est ea causae aliquid. At quod mentitum patrioque qui, dicunt bonorum interesset eos ex. Vis primis docendi evertitur ei.</p>
-              <p> 
-              	<a href="#" class="btn btn-default" role="button">TRY STRETCH</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      
-      </div>
+</div>

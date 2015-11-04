@@ -45,6 +45,8 @@ get '/stretches' do
   else  
     @stretches = Stretch.where(stretch_type_id: params[:stretch_type_id])
   end
+
+  @entries = Entry.all
 	erb :'/stretches/show'
 end
 
@@ -84,16 +86,36 @@ post '/user/entries' do
 end
 
 # update pending to completed
-# put '/user/entries' do
-# 	entry = Entry.new(
-# 		user_id: current_user.id,
-# 		stretch_id: params[:stretch_id].to_i
-# 	)
+put '/user/entries/:id' do
+	entry = Entry.find_by(id: params[:id].to_i)
+	entry.status = 'COMPLETED'
+	entry.date_created = Time.now.to_date
+	entry.save
+	redirect to '/user/entries'
+end
 
-# 	entry.save
-	
-# 	redirect to '/user/entries'
-# end
+# delete 
+delete '/user/entries/:id' do
+		entry = Entry.find_by(id: params[:id])
+		entry.destroy
+		redirect to '/user/entries'
+end
+
+# get post form
+get '/user/entries/post/:id/edit' do
+	@entry = Entry.find_by(id: params[:id])
+	@entry_id = params[:id]
+	erb :post
+end
+
+# update image or post
+put '/user/entries/post/:id' do
+	@post = params[:post]
+	entry = Entry.find_by(id: params[:id])
+	entry.post = @post
+	entry.save
+	redirect to '/user/entries'
+end
 
 # -----------------------------
 # AUTHENTICATION
