@@ -30,7 +30,7 @@ CREATE TABLE entries
 	user_id INTEGER NOT NULL,
 	stretch_id INTEGER NOT NULL,
 	post VARCHAR(500),
-	image_url VARCHAR(200),
+	entry_img VARCHAR(200),
 	status VARCHAR(100) NOT NULL DEFAULT 'PENDING',
 	date_created DATE NOT NULL DEFAULT CURRENT_DATE,
 	times_liked INTEGER DEFAULT 0

@@ -35,7 +35,9 @@
     
     <!-- <div class="col-xs-6 col-sm-6 col-md-4"> -->
       <div class="thumbnail">
-        <img src="https://unsplash.it/400" alt="">
+        
+        <img src="<%= entry.entry_img %>" alt="">
+        
         <div class="caption">
           <h4 class="rand-h4"><%= Stretch.find_by(id: entry.stretch_id).task %></h4>
           <p class="created-by">by <%= User.find_by(id: entry.user_id).name %></p>

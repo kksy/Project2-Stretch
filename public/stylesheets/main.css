@@ -25,6 +25,11 @@ a:hover {
   font-style: italic;
 }
 
+.date-created {
+  color: grey;
+  font-size: 12px;
+}
+
 /* bootstrap override */
 .jumbotron h1 {
   font-size: 60px;
@@ -38,7 +43,12 @@ a:hover {
 /* media queries */
 
 /* for masonry */
-@media screen and (min-width: 768px) {
-  /* 5 columns for larger screens */
+@media screen and (min-width: 1000px) {
+  /* 3 columns for larger screens */
   .grid-sizer, .grid-item { width: 33.33333%; }
+}
+
+@media screen and (max-width: 450px) {
+  /* 1 column for smaller screens */
+  .grid-sizer, .grid-item { width: 100%; }
 }

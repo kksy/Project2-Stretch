@@ -115,6 +115,7 @@ get '/user/entries/post/:id/edit' do
 	if logged_in?
 		@entry = Entry.find_by(id: params[:id])
 		@entry_id = params[:id]
+		@stretch_name = Stretch.find_by(id: @entry.stretch_id)
 	else
 		redirect to '/login'
 	end
@@ -126,6 +127,8 @@ put '/user/entries/post/:id' do
 	@post = params[:post]
 	entry = Entry.find_by(id: params[:id])
 	entry.post = @post
+	entry.image_url = params[:entry_img]
+
 	entry.save
 	redirect to '/user/entries'
 end

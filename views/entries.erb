@@ -60,11 +60,7 @@
 	  		<% stretch = Stretch.find_by(id: stretch_id) %>
 				<!-- <div class="col-xs-6 col-sm-6 col-md-4"> -->
 				  <div class="thumbnail">
-				  	<% if entry.image_url.nil? %>
-				    	<img src="http://lorempixel.com/400/400/abstract" alt="">
-				    <% else %>
-				    	<img src="<%= entry.image_url %>" alt="">
-				    <% end %>
+				    	<img src="<%= entry.entry_img %>" alt="">
 				    <div class="caption">
 				      <h4><%= stretch.task %></h4>
 				      <p><%= entry.post %></p>
