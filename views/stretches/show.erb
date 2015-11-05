@@ -24,37 +24,32 @@
 
 <!-- display random posts from users -->
 <h2>BE INSPIRED</h2>
-
-<!-- <div class="row"> -->
   
 <div id="masonry-grid">
   <div class="grid-sizer"></div>
-    
-    <% @rand_entries.each do |entry| %>
-    <div class="grid-item">
-    
-    <!-- <div class="col-xs-6 col-sm-6 col-md-4"> -->
-      <div class="thumbnail">
-        
-        <img src="<%= entry.entry_img %>" alt="">
-        
-        <div class="caption">
-          <h4 class="rand-h4"><%= Stretch.find_by(id: entry.stretch_id).task %></h4>
-          <p class="created-by">by <%= User.find_by(id: entry.user_id).name %></p>
-          <p><%= entry.post %></p>
-          <p>
-            <form class="stretches" action="/user/entries" method="post">
-              <input type="hidden" name="stretch_id" value="<%= entry.stretch_id %>"> 
-              <button type="submit" class="btn btn-sm btn-default">TRY STRETCH</button>
-            </form>
-          </p>
-        </div>
-      </div>
-    <!-- </div> -->
-    
-    </div>
+    <% if @rand_entries.empty? %>
+      <p>Nothing to show.</p>
+    <% else %>  
+      <% @rand_entries.each do |entry| %>
+        <div class="grid-item">
+          <div class="thumbnail">
+            <img src="<%= entry.entry_img %>" alt="">
 
-    <% end %>
-    
+            <div class="caption">
+              <h4 class="rand-h4"><%= Stretch.find_by(id: entry.stretch_id).task %></h4>
+              <p class="created-by">by <%= User.find_by(id: entry.user_id).name %></p>
+              <p><%= entry.post %></p>
+              <p>
+                <form class="stretches" action="/user/entries" method="post">
+                  <input type="hidden" name="stretch_id" value="<%= entry.stretch_id %>"> 
+                  <button type="submit" class="btn btn-sm btn-default">TRY STRETCH</button>
+                </form>
+              </p>
+            </div>
+          </div>
+      
+        </div>
+      <% end %>
+    <% end %>   
   </div>
 </div>

@@ -2,24 +2,28 @@
 <h2 id="pending">PENDING</h2>
 
 <div class="list-group">
-  <% @entries_pending.each do |entry| %>
-  	<% stretch_id = entry.stretch_id %>
-  	<% stretch = Stretch.find_by(id: stretch_id) %>
-    
-      <p class="list-group-item">
-      	<%= stretch.task %>
-      </p>
+  <% if @entries_pending.empty? %>
+    <p>Nothing to show. To get started, try a <a href="/stretches">stretch</a></p>
+  <% else %>
+    <% @entries_pending.each do |entry| %>
+    	<% stretch_id = entry.stretch_id %>
+    	<% stretch = Stretch.find_by(id: stretch_id) %>
+      
+        <p class="list-group-item">
+        	<%= stretch.task %>
+        </p>
 
-      <form class="stretches" action="/user/entries/<%= entry.id %>" method="post">
-        	<input type="hidden" name="_method" value="put">
-        	<button class="btn btn-xs btn-default pull-right">complete</button>
-      </form>
+        <form class="stretches" action="/user/entries/<%= entry.id %>" method="post">
+          	<input type="hidden" name="_method" value="put">
+          	<button class="btn btn-xs btn-default pull-right">complete</button>
+        </form>
 
-      <form class="stretches" action="/user/entries/<%= entry.id %>" method="post">
-        	<input type="hidden" name="_method" value="delete">
-        	<button class="btn btn-xs btn-default pull-right">delete</button>
-      </form>
-    
+        <form class="stretches" action="/user/entries/<%= entry.id %>" method="post">
+          	<input type="hidden" name="_method" value="delete">
+          	<button class="btn btn-xs btn-default pull-right">delete</button>
+        </form>
+      
+    <% end %>
   <% end %>
 </div>
 
@@ -27,6 +31,9 @@
 <h2 id="completed">COMPLETED</h2>
 
 <div class="list-group">
+<% if @entries_pending.empty? %>
+  <p>Nothing to show. Please complete a stretch.</p>
+<% else %>
   <% @entries_completed.each do |entry| %>
   	<% stretch_id = entry.stretch_id %>
   	<% stretch = Stretch.find_by(id: stretch_id) %>
@@ -44,6 +51,7 @@
         <button class="btn btn-xs btn-default pull-right">delete</button>
       </form>
   <% end %>
+<% end %>
 </div>
 
 <!-- display all completed entries with posts from user -->
@@ -51,25 +59,24 @@
 
 <div id="masonry-grid">
   <div class="grid-sizer"></div>
-
-<!-- <div class="row"> -->
-		<% @entries_completed.each do |entry| %>
-			<% if !entry.post.nil? %>
-			<div class="grid-item">
-				<% stretch_id = entry.stretch_id %>
-	  		<% stretch = Stretch.find_by(id: stretch_id) %>
-				<!-- <div class="col-xs-6 col-sm-6 col-md-4"> -->
-				  <div class="thumbnail">
-				    	<img src="<%= entry.entry_img %>" alt="">
-				    <div class="caption">
-				      <h4><%= stretch.task %></h4>
-				      <p><%= entry.post %></p>
-				    </div>
-				  </div>
-				<!-- </div> -->
-				</div>
-			<% end %>	
-		<% end %>
-<!-- </div> -->
+    <% if @entries_completed.empty? %>
+      <p>Nothing to show. Please add a post to your completed stretch.</p>
+    <% else %>
+  		<% @entries_completed.each do |entry| %>
+  			<% if !entry.post.nil? %>
+  			<div class="grid-item">
+  				<% stretch_id = entry.stretch_id %>
+  	  		<% stretch = Stretch.find_by(id: stretch_id) %>
+  				  <div class="thumbnail">
+  				    	<img src="<%= entry.entry_img %>" alt="">
+  				    <div class="caption">
+  				      <h4><%= stretch.task %></h4>
+  				      <p><%= entry.post %></p>
+  				    </div>
+  				  </div>
+  				</div>
+  			<% end %>	
+  		<% end %>
+    <% end %>
   </div>
 </div>

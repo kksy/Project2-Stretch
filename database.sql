@@ -1,7 +1,5 @@
 CREATE DATABASE stretchapp;
 
-\c stretchapp
-
 CREATE TABLE stretches
 (
 	id SERIAL4 PRIMARY KEY,

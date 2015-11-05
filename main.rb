@@ -44,8 +44,11 @@ get '/stretches' do
 	  # for random inspiration posts
 	  @rand_entries = []
 	  for i in 0..5
-	  	@rand_entries << Entry.where.not(post: nil).sample
+	  	if Entry.where.not(post: nil).sample
+	  		@rand_entries << Entry.where.not(post: nil).sample
+	  	end
 	  end
+
 	else
 		redirect to '/login'
 	 end
