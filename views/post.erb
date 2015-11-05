@@ -6,7 +6,7 @@
 		<input type="hidden" name="_method" value="put">
 		<label>Entry post for "<%= @stretch_name.task %>"</label>
 		<span class="date-created"><%= @entry.date_created %></span>
-  	<textarea name="post" class="form-control" placeholder="Write a short entry of what you did, and how it has improved you"><%= @entry.post %></textarea>
+  	<textarea maxlength="500" name="post" class="form-control" placeholder="Write a short entry of what you did, and how it has improved you"><%= @entry.post %></textarea>
   	<span id="helpBlock" class="help-block">max 500 chars.</span>
 		<label>Choose image</label>
 		<input type="file" name="entry_img">

@@ -13,13 +13,16 @@
 <div class="list-group">
  <% if @stretches %>
   <% @stretches.each do |stretch| %>
-    <form class="stretches" action="/user/entries" method="post">
-      <p class="list-group-item">
+    <p class="list-group-item">
+      <%= stretch.task %>
+    </p>
+
+    <div class="stretches-forms">
+      <form class="stretches" action="/user/entries" method="post">
         <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
-        <%= stretch.task %>
         <button class="btn btn-xs btn-default pull-right">try</button>
-      </p>
-    </form>
+      </form>
+    </div>
   <% end %>
 <% end %>
 

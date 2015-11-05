@@ -15,9 +15,14 @@ a:hover {
 	text-decoration: none;
 }
 
-.stretches {
- overflow: auto;
- margin: 10px 0;
+.stretches-forms {
+  overflow: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.stretches-forms button:last-child {
+  margin-left: 1%;
 }
 
 .rand-h4 {
