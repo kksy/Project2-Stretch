@@ -3,9 +3,11 @@
 
 <ul class="nav nav-tabs">
   <li role="presentation"><a href="/stretches">ALL</a></li>
-  <% @stretch_types.each do |stretch_type| %>
-    <li role="presentation"><a href="/stretches?stretch_type_id=<%= "#{stretch_type.id}" %>"><%= stretch_type.name.upcase %></a></li>
-  <% end %>
+    <% if !@stretch_types.empty? %>
+      <% @stretch_types.each do |stretch_type| %>
+        <li role="presentation"><a href="/stretches?stretch_type_id=<%= "#{stretch_type.id}" %>"><%= stretch_type.name.upcase %></a></li>
+      <% end %>
+    <% end %>
 </ul>
 
 <div class="list-group">
