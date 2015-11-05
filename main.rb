@@ -28,6 +28,7 @@ after do
 end
 
 get '/' do
+
   erb :index, :layout => :layout_main
 end
 
@@ -165,7 +166,7 @@ post '/register' do
 
 	user.save
 
-	redirect to '/'
+	redirect to '/stretches'
 
 end
 
@@ -180,6 +181,10 @@ get '/login' do
 
 # create a session (client side)
 post '/session' do
+
+	if logged_in?
+		redirect to '/stretches'
+	end
 
   user = User.find_by(email: params[:email])
 
