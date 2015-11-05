@@ -42,16 +42,20 @@ get '/stretches' do
 	  end
 
 	  # for random inspiration posts
-	  @rand_entries = []
-	  for i in 0..5
-	  	if Entry.where.not(post: nil).sample
-	  		@rand_entries << Entry.where.not(post: nil).sample
+	  @entries_with_post = []
+	  if Entry 
+	  	@entries_with_post = []
+		  Entry.all.each do |entry|
+		  	if entry.post
+		  		@entries_with_post << entry
+		  	end
 	  	end
+	  	@entries_with_post = @entries_with_post.shuffle
 	  end
 
 	else
 		redirect to '/login'
-	 end
+	end
 
 	erb :'/stretches/show'
 end
@@ -67,11 +71,13 @@ end
 
 # create new stretch
 post '/stretches' do
+
 	Stretch.create(
 		task: "#{ params[:stretch] }",
 		stretch_type_id: "#{ params[:stretch_type_id] }"
 	)
-	erb :'/stretches/show'
+	redirect to '/stretches'
+
 end
 
 # list entries of current user
@@ -130,7 +136,7 @@ put '/user/entries/post/:id' do
 	@post = params[:post]
 	entry = Entry.find_by(id: params[:id])
 	entry.post = @post
-	entry.image_url = params[:entry_img]
+	entry.entry_img = params[:entry_img]
 
 	entry.save
 	redirect to '/user/entries'

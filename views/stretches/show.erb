@@ -3,7 +3,7 @@
 
 <ul class="nav nav-tabs">
   <li role="presentation"><a href="/stretches">ALL</a></li>
-    <% if !@stretch_types.empty? %>
+    <% if @stretch_types %>
       <% @stretch_types.each do |stretch_type| %>
         <li role="presentation"><a href="/stretches?stretch_type_id=<%= "#{stretch_type.id}" %>"><%= stretch_type.name.upcase %></a></li>
       <% end %>
@@ -11,7 +11,7 @@
 </ul>
 
 <div class="list-group">
- 
+ <% if @stretches %>
   <% @stretches.each do |stretch| %>
     <form class="stretches" action="/user/entries" method="post">
       <p class="list-group-item">
@@ -21,6 +21,7 @@
       </p>
     </form>
   <% end %>
+<% end %>
 
 </div>
 
@@ -29,10 +30,10 @@
   
 <div id="masonry-grid">
   <div class="grid-sizer"></div>
-    <% if @rand_entries.empty? %>
+    <% if @entries_with_post.empty? %>
       <p>Nothing to show.</p>
     <% else %>  
-      <% @rand_entries.each do |entry| %>
+      <% @entries_with_post.each do |entry| %>
         <div class="grid-item">
           <div class="thumbnail">
             <img src="<%= entry.entry_img %>" alt="">
