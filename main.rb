@@ -28,7 +28,7 @@ after do
 end
 
 get '/' do
-	puts "hello world"
+
   erb :index, :layout => :layout_main
 end
 
