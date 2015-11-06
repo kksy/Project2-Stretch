@@ -22,6 +22,12 @@
         <input type="hidden" name="stretch_id" value="<%= stretch.id %>">
         <button class="btn btn-xs btn-default pull-right">try</button>
       </form>
+      <% if current_user.id == @admin_id %>
+        <form action="/stretches/<%= stretch.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button class="btn btn-xs btn-default pull-right">delete</button>
+        </form>
+      <% end %>
     </div>
   <% end %>
 <% end %>

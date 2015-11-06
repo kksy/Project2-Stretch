@@ -1,6 +1,6 @@
-# require 'pry'
+require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pg' # to connect to postgres
 
 require_relative 'db_config'
@@ -34,6 +34,8 @@ end
 
 # get all stretches according to category
 get '/stretches' do
+	admin = User.find_by(id: 1)
+	@admin_id = admin.id
 	if logged_in?
 		@stretch_types = StretchType.all
 		if params[:stretch_type_id].nil? || params[:stretch_type_id].empty?
@@ -81,6 +83,12 @@ post '/stretches' do
 
 end
 
+delete '/stretches/:id' do
+	stretch = Stretch.find_by(id: params[:id])
+	stretch.destroy
+	redirect to '/stretches'
+
+end
 # list entries of current user
 get '/user/entries' do
 	if logged_in?
