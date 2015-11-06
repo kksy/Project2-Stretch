@@ -1,6 +1,6 @@
-require 'pry'
+# require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'pg' # to connect to postgres
 
 require_relative 'db_config'
@@ -28,7 +28,7 @@ after do
 end
 
 get '/' do
-
+	puts "hello world"
   erb :index, :layout => :layout_main
 end
 
