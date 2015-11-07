@@ -74,4 +74,4 @@ Cloud Platform:
 ## Stretch Goals
 2. users can 'like' posts
 2. users can set their posts to private
-3. e-mail authentication
+3. e-mail verification
