@@ -1,4 +1,4 @@
-# Project 2 - App Name
+# Project 2 - Stretch App
 
 ##Introduction
 
