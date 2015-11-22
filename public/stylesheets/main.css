@@ -2,19 +2,25 @@
 	box-sizing: border-box;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
+/* layout_main */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 12px;
+  border-top: 1px dotted #ccc;
+  padding-top: 10px;
+}
+
+/* login and signup form */
 .heading {
   margin-top: 50px;
 }
 
-.app-info {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
+/* stretches > show.erb */
 .stretches-forms {
   overflow: auto;
   margin-top: 10px;
@@ -35,6 +41,8 @@ a:hover {
   font-style: italic;
 }
 
+
+/* user post */
 .date-created {
   color: grey;
   font-size: 12px;
