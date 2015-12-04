@@ -7,8 +7,8 @@
 This app encourages users to try new things outside their comfort zone. The challenges (Stretches) are both system and user generated, and the users will be able to save the Stretches to their pending list. Each Stretch is divided into one of: social, hobby and adventure. If completed, they can choose to write a short entry on their experiences and upload an image.
 
 <b>Project Link:</b> https://stretchapp.herokuapp.com/
-username: user1@example.com
-password: password123
++ username: user1@example.com
++ password: password123
 
 #### Technologies
 Languages:
