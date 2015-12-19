@@ -4,7 +4,11 @@
 
 This app encourages users to try new things outside their comfort zone. The challenges (Stretches) are both system and user generated, and the users will be able to save the Stretches to their pending list. Each Stretch is divided into one of: social, hobby and adventure. If completed, they can choose to write a short entry on their experiences and upload an image.
 
+This was a 5-day project made during my Web Development Immersive Course at General Assembly in 2015
+
 <b>Live Demo:</b> https://stretchapp.herokuapp.com/
++ username: user1@example.com
++ password: password123
 
 ## Features
 
@@ -14,16 +18,18 @@ This app encourages users to try new things outside their comfort zone. The chal
 + User can create an entry and choose to upload an image 
 + Masonry Grid for inspiration entries
 + Admin deletion of Stretches
++ Search by category
 
 ## Technologies
 
-+ Ruby
-+ Active Record
-+ HTML
-+ CSS
+
++ HTML5
++ CSS3
 + Bootstrap
 + JavaScript, including
   - Masonry
++ Ruby
++ Active Record
 + Sinatra
 + PostgreSQL
 + Deployment: Heroku
