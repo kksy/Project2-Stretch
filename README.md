@@ -28,7 +28,7 @@ This was a 5-day project made during my Web Development Immersive Course at Gene
 + CSS3
 + Bootstrap
 + JavaScript, including
-  - Masonry
+  - [Masonry](http://masonry.desandro.com/)
 + Ruby
 + Active Record
 + Sinatra
@@ -36,13 +36,6 @@ This was a 5-day project made during my Web Development Immersive Course at Gene
 + [CarrierWave](https://github.com/carrierwaveuploader/carrierwave)
 + [Bcrypt](https://rubygems.org/gems/bcrypt-ruby/versions/3.1.5)
 + Deployment: Heroku
-
-## Known Issues and Suggestions
-
-+ Images uploaded through CarrierWave are only stored temporarily in Heroku. Use [Box API](https://developers.box.com/) as free storage
-+ Deleting a Stretch does not delete the entries that go along with it. You can set dependencies to be destroyed in the active record models
-+ Deleting a user does not delete the entries they have created (Solution is the same as above)
-+ Pagination can help in limiting the long list of Stretches
 
 ## Feedback from users
 
@@ -52,6 +45,13 @@ I was given the following feedback, when I asked people to test my app:
 + The main Stretch page should focus more on images, instead of a long list of Stretches
 + A user complained of having an error while posting
   - I've checked Heroku logs, and found that the post exceeded the limit of characters I had set for the column. In order to fix this, I set a limit for character count on the input box as well. 
+
+## Known Issues and Suggestions
+
++ Images uploaded through CarrierWave are only stored temporarily in Heroku. Use [Box API](https://developers.box.com/) as free storage
++ Deleting a Stretch does not delete the entries that go along with it. You can set dependencies to be destroyed in the active record models
++ Deleting a user does not delete the entries they have created (Solution is the same as above)
++ Pagination can help in limiting the long list of Stretches
 
 ## Stretch Goals
 2. users can 'like' posts
