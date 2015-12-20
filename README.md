@@ -34,6 +34,10 @@ This was a 5-day project made during my Web Development Immersive Course at Gene
 + PostgreSQL
 + Deployment: Heroku
 
+## Database
+
+![alt text](public/images/project2-database.PNG?raw=true)
+
 ## Known Issues
 
 + Image upload stored temporarily in heroku
