@@ -32,13 +32,15 @@ This was a 5-day project made during my Web Development Immersive Course at Gene
 + Active Record
 + Sinatra
 + PostgreSQL
++ [CarrierWave](https://github.com/carrierwaveuploader/carrierwave)
++ [Bcrypt](https://rubygems.org/gems/bcrypt-ruby/versions/3.1.5)
 + Deployment: Heroku
 
-## Known Issues
+## Known Issues and Suggestions
 
-+ Image upload stored temporarily in heroku
-+ Deleting a Stretch does not delete the entries that go along with it
-+ Deleting a user does not delete the entries they have created
++ Images uploaded through CarrierWave are only stored temporarily in Heroku. Use [Box API](https://developers.box.com/) as free storage
++ Deleting a Stretch does not delete the entries that go along with it. You can set dependencies to be destroyed in the active record models
++ Deleting a user does not delete the entries they have created (Solution is the same as above)
 
 ## Feedback from users (testers)
 + The long list in the Category section ('/stretches') is distracting
